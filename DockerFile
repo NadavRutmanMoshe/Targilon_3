@@ -1,0 +1,9 @@
+FROM python:3
+
+COPY requirements.txt .
+RUN pip -m install -r requirements.txt 
+
+WORKDIR /Targilon_3
+COPY . /Targilon_3
+
+CMD ["python" , "main.py"]
