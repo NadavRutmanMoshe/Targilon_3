@@ -1,8 +1,13 @@
 FROM gcc:latest
 
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
+RUN apt-get update && apt-get install -y cmake
 
-RUN g++ -o myapp main.cpp
+COPY . /usr/src/mytest
+WORKDIR /usr/src/mytest
 
-CMD [ "./myapp" ]
+RUN mkdir Build
+WORKDIR /usr/src/mytest/Build
+
+RUN cmake .. && make
+
+CMD [ "./runTests" ]

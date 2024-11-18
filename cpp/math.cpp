@@ -1,3 +1,4 @@
-int main(){
-    return 0;
+#include "math.h"
+int add(int a, int b) {
+    return a + b;
 }
